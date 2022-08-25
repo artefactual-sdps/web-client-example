@@ -15,6 +15,11 @@ a,
   transition: 0.4s;
 }
 
+h1,
+h2 {
+  color: #5e2750;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: #5e275011;

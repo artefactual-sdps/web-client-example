@@ -25,12 +25,13 @@ const retry = () => {
 
     <ul v-if="packageStore.packages">
       <li v-for="pkg in packageStore.packages" :key="pkg.id">
-        Package {{ pkg.id }}
+        <router-link :to="{ name: 'package', params: { id: pkg.id } }">
+          Package <code>{{ pkg.aipId }}</code>
+        </router-link>
+        <br />Status: {{ pkg.status }}
       </li>
     </ul>
 
-    <div v-if="!packageStore.packages.length">
-      Not ready yet!
-    </div>
+    <div v-if="!packageStore.packages.length">Not ready yet!</div>
   </div>
 </template>

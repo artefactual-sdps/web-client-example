@@ -5,31 +5,31 @@ import * as runtime from "./openapi-generator/runtime";
 // https://github.com/artefactual-sdps/enduro/blob/main/dashboard/src/client.ts.
 
 export interface Client {
-    package: api.PackageApi;
+  package: api.PackageApi;
 }
 
 function getPath(): string {
-    const base = "/api";
-    const location = window.location;
-    const path =
-      location.protocol +
-      "//" +
-      location.hostname +
-      (location.port ? ":" + location.port : "") +
-      base +
-      (location.search ? location.search : "");
+  const base = "/api";
+  const location = window.location;
+  const path =
+    location.protocol +
+    "//" +
+    location.hostname +
+    (location.port ? ":" + location.port : "") +
+    base +
+    (location.search ? location.search : "");
 
-    return path.replace(/\/$/, "");
-  }
+  return path.replace(/\/$/, "");
+}
 
-  function createClient(): Client {
-    const path = getPath();
-    const config: api.Configuration = new api.Configuration({ basePath: path });
-    return {
-      package: new api.PackageApi(config),
-    };
-  }
+function createClient(): Client {
+  const path = getPath();
+  const config: api.Configuration = new api.Configuration({ basePath: path });
+  return {
+    package: new api.PackageApi(config),
+  };
+}
 
-  const client = createClient();
+const client = createClient();
 
-  export { api, runtime, client };
+export { api, runtime, client };
