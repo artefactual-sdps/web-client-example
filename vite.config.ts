@@ -10,5 +10,16 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: process.env.ENDURO_API_ADDRESS || "http://127.0.0.1:3000",
+        changeOrigin: true,
+        rewrite: (path) => {
+          return path; // rewrite as needed!
+        }
+      }
+    },
   }
 })
