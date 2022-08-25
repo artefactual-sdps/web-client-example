@@ -1,3 +1,5 @@
+<img src="https://github.com/artefactual-sdps/web-client-example/workflows/Dashboard/badge.svg"/>
+
 # web-client-example
 
 This template should help get you started developing with Vue 3 in Vite while connecting to the Enduro API.
