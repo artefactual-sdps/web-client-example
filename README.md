@@ -6,7 +6,7 @@ This template should help get you started developing with Vue 3 in Vite while co
 
 * The [API specification] was downloaded from the Enduro repo.
 * The TypeScript client was generated using [OpenAPI Generator].
-* For more Vue configuration details, see [README-vue.md](./README-vue.md).
+* For more Vite/Vue configuration details, see [README-vite.md](./README-vite.md).
 
 See the [commit history] if you want to know how this example was built from scratch.
 
