@@ -14,23 +14,25 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  BatchHintsResponseBody,
+  BatchStatusResponseBody,
+  BatchSubmitNotAvailableResponseBody,
+  BatchSubmitNotValidResponseBody,
+  BatchSubmitRequestBody,
+  BatchSubmitResponseBody,
+} from '../models';
 import {
-    BatchHintsResponseBody,
     BatchHintsResponseBodyFromJSON,
     BatchHintsResponseBodyToJSON,
-    BatchStatusResponseBody,
     BatchStatusResponseBodyFromJSON,
     BatchStatusResponseBodyToJSON,
-    BatchSubmitNotAvailableResponseBody,
     BatchSubmitNotAvailableResponseBodyFromJSON,
     BatchSubmitNotAvailableResponseBodyToJSON,
-    BatchSubmitNotValidResponseBody,
     BatchSubmitNotValidResponseBodyFromJSON,
     BatchSubmitNotValidResponseBodyToJSON,
-    BatchSubmitRequestBody,
     BatchSubmitRequestBodyFromJSON,
     BatchSubmitRequestBodyToJSON,
-    BatchSubmitResponseBody,
     BatchSubmitResponseBodyFromJSON,
     BatchSubmitResponseBodyToJSON,
 } from '../models';
@@ -53,13 +55,13 @@ export interface BatchApiInterface {
      * @throws {RequiredError}
      * @memberof BatchApiInterface
      */
-    batchHintsRaw(initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<runtime.ApiResponse<BatchHintsResponseBody>>;
+    batchHintsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchHintsResponseBody>>;
 
     /**
      * Retrieve form hints
      * hints batch
      */
-    batchHints(initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<BatchHintsResponseBody>;
+    batchHints(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchHintsResponseBody>;
 
     /**
      * Retrieve status of current batch operation.
@@ -68,13 +70,13 @@ export interface BatchApiInterface {
      * @throws {RequiredError}
      * @memberof BatchApiInterface
      */
-    batchStatusRaw(initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<runtime.ApiResponse<BatchStatusResponseBody>>;
+    batchStatusRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchStatusResponseBody>>;
 
     /**
      * Retrieve status of current batch operation.
      * status batch
      */
-    batchStatus(initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<BatchStatusResponseBody>;
+    batchStatus(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchStatusResponseBody>;
 
     /**
      * Submit a new batch
@@ -84,13 +86,13 @@ export interface BatchApiInterface {
      * @throws {RequiredError}
      * @memberof BatchApiInterface
      */
-    batchSubmitRaw(requestParameters: BatchSubmitRequest, initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<runtime.ApiResponse<BatchSubmitResponseBody>>;
+    batchSubmitRaw(requestParameters: BatchSubmitRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchSubmitResponseBody>>;
 
     /**
      * Submit a new batch
      * submit batch
      */
-    batchSubmit(requestParameters: BatchSubmitRequest, initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<BatchSubmitResponseBody>;
+    batchSubmit(requestParameters: BatchSubmitRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchSubmitResponseBody>;
 
 }
 
@@ -103,7 +105,7 @@ export class BatchApi extends runtime.BaseAPI implements BatchApiInterface {
      * Retrieve form hints
      * hints batch
      */
-    async batchHintsRaw(initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<runtime.ApiResponse<BatchHintsResponseBody>> {
+    async batchHintsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchHintsResponseBody>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -122,7 +124,7 @@ export class BatchApi extends runtime.BaseAPI implements BatchApiInterface {
      * Retrieve form hints
      * hints batch
      */
-    async batchHints(initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<BatchHintsResponseBody> {
+    async batchHints(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchHintsResponseBody> {
         const response = await this.batchHintsRaw(initOverrides);
         return await response.value();
     }
@@ -131,7 +133,7 @@ export class BatchApi extends runtime.BaseAPI implements BatchApiInterface {
      * Retrieve status of current batch operation.
      * status batch
      */
-    async batchStatusRaw(initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<runtime.ApiResponse<BatchStatusResponseBody>> {
+    async batchStatusRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchStatusResponseBody>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -150,7 +152,7 @@ export class BatchApi extends runtime.BaseAPI implements BatchApiInterface {
      * Retrieve status of current batch operation.
      * status batch
      */
-    async batchStatus(initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<BatchStatusResponseBody> {
+    async batchStatus(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchStatusResponseBody> {
         const response = await this.batchStatusRaw(initOverrides);
         return await response.value();
     }
@@ -159,7 +161,7 @@ export class BatchApi extends runtime.BaseAPI implements BatchApiInterface {
      * Submit a new batch
      * submit batch
      */
-    async batchSubmitRaw(requestParameters: BatchSubmitRequest, initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<runtime.ApiResponse<BatchSubmitResponseBody>> {
+    async batchSubmitRaw(requestParameters: BatchSubmitRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchSubmitResponseBody>> {
         if (requestParameters.submitRequestBody === null || requestParameters.submitRequestBody === undefined) {
             throw new runtime.RequiredError('submitRequestBody','Required parameter requestParameters.submitRequestBody was null or undefined when calling batchSubmit.');
         }
@@ -185,7 +187,7 @@ export class BatchApi extends runtime.BaseAPI implements BatchApiInterface {
      * Submit a new batch
      * submit batch
      */
-    async batchSubmit(requestParameters: BatchSubmitRequest, initOverrides?: RequestInit | runtime.InitOverideFunction): Promise<BatchSubmitResponseBody> {
+    async batchSubmit(requestParameters: BatchSubmitRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchSubmitResponseBody> {
         const response = await this.batchSubmitRaw(requestParameters, initOverrides);
         return await response.value();
     }

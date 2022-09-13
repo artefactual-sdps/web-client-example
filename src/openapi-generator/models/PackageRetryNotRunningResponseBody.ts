@@ -57,6 +57,21 @@ export interface PackageRetryNotRunningResponseBody {
     timeout: boolean;
 }
 
+/**
+ * Check if a given object implements the PackageRetryNotRunningResponseBody interface.
+ */
+export function instanceOfPackageRetryNotRunningResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "fault" in value;
+    isInstance = isInstance && "id" in value;
+    isInstance = isInstance && "message" in value;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "temporary" in value;
+    isInstance = isInstance && "timeout" in value;
+
+    return isInstance;
+}
+
 export function PackageRetryNotRunningResponseBodyFromJSON(json: any): PackageRetryNotRunningResponseBody {
     return PackageRetryNotRunningResponseBodyFromJSONTyped(json, false);
 }

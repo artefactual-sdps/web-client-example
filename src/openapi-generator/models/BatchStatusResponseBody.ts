@@ -45,6 +45,16 @@ export interface BatchStatusResponseBody {
     workflowId?: string;
 }
 
+/**
+ * Check if a given object implements the BatchStatusResponseBody interface.
+ */
+export function instanceOfBatchStatusResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "running" in value;
+
+    return isInstance;
+}
+
 export function BatchStatusResponseBodyFromJSON(json: any): BatchStatusResponseBody {
     return BatchStatusResponseBodyFromJSONTyped(json, false);
 }

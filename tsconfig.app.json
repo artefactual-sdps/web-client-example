@@ -7,9 +7,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-
-    // Type imports are being developed in OpenAPI Generator, not ready yet.
-    "preserveValueImports": false
+    }
   }
 }

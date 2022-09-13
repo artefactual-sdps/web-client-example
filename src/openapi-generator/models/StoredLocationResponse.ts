@@ -71,6 +71,19 @@ export const StoredLocationResponseSourceEnum = {
 export type StoredLocationResponseSourceEnum = typeof StoredLocationResponseSourceEnum[keyof typeof StoredLocationResponseSourceEnum];
 
 
+/**
+ * Check if a given object implements the StoredLocationResponse interface.
+ */
+export function instanceOfStoredLocationResponse(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "purpose" in value;
+    isInstance = isInstance && "source" in value;
+    isInstance = isInstance && "uuid" in value;
+
+    return isInstance;
+}
+
 export function StoredLocationResponseFromJSON(json: any): StoredLocationResponse {
     return StoredLocationResponseFromJSONTyped(json, false);
 }

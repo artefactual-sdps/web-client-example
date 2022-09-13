@@ -66,6 +66,17 @@ export const PackageBulkRequestBodyStatusEnum = {
 export type PackageBulkRequestBodyStatusEnum = typeof PackageBulkRequestBodyStatusEnum[keyof typeof PackageBulkRequestBodyStatusEnum];
 
 
+/**
+ * Check if a given object implements the PackageBulkRequestBody interface.
+ */
+export function instanceOfPackageBulkRequestBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "operation" in value;
+    isInstance = isInstance && "status" in value;
+
+    return isInstance;
+}
+
 export function PackageBulkRequestBodyFromJSON(json: any): PackageBulkRequestBody {
     return PackageBulkRequestBodyFromJSONTyped(json, false);
 }

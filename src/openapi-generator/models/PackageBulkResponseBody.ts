@@ -33,6 +33,17 @@ export interface PackageBulkResponseBody {
     workflowId: string;
 }
 
+/**
+ * Check if a given object implements the PackageBulkResponseBody interface.
+ */
+export function instanceOfPackageBulkResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "runId" in value;
+    isInstance = isInstance && "workflowId" in value;
+
+    return isInstance;
+}
+
 export function PackageBulkResponseBodyFromJSON(json: any): PackageBulkResponseBody {
     return PackageBulkResponseBodyFromJSONTyped(json, false);
 }

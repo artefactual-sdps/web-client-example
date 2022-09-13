@@ -27,6 +27,15 @@ export interface BatchHintsResponseBody {
     completedDirs?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the BatchHintsResponseBody interface.
+ */
+export function instanceOfBatchHintsResponseBody(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function BatchHintsResponseBodyFromJSON(json: any): BatchHintsResponseBody {
     return BatchHintsResponseBodyFromJSONTyped(json, false);
 }

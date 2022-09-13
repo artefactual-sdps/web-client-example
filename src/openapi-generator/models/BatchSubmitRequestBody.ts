@@ -39,6 +39,16 @@ export interface BatchSubmitRequestBody {
     retentionPeriod?: string;
 }
 
+/**
+ * Check if a given object implements the BatchSubmitRequestBody interface.
+ */
+export function instanceOfBatchSubmitRequestBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "path" in value;
+
+    return isInstance;
+}
+
 export function BatchSubmitRequestBodyFromJSON(json: any): BatchSubmitRequestBody {
     return BatchSubmitRequestBodyFromJSONTyped(json, false);
 }

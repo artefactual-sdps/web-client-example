@@ -33,6 +33,17 @@ export interface PackageCancelNotFoundResponseBody {
     message: string;
 }
 
+/**
+ * Check if a given object implements the PackageCancelNotFoundResponseBody interface.
+ */
+export function instanceOfPackageCancelNotFoundResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "id" in value;
+    isInstance = isInstance && "message" in value;
+
+    return isInstance;
+}
+
 export function PackageCancelNotFoundResponseBodyFromJSON(json: any): PackageCancelNotFoundResponseBody {
     return PackageCancelNotFoundResponseBodyFromJSONTyped(json, false);
 }

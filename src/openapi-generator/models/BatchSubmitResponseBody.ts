@@ -33,6 +33,17 @@ export interface BatchSubmitResponseBody {
     workflowId: string;
 }
 
+/**
+ * Check if a given object implements the BatchSubmitResponseBody interface.
+ */
+export function instanceOfBatchSubmitResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "runId" in value;
+    isInstance = isInstance && "workflowId" in value;
+
+    return isInstance;
+}
+
 export function BatchSubmitResponseBodyFromJSON(json: any): BatchSubmitResponseBody {
     return BatchSubmitResponseBodyFromJSONTyped(json, false);
 }

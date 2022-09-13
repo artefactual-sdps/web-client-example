@@ -57,6 +57,21 @@ export interface BatchSubmitNotValidResponseBody {
     timeout: boolean;
 }
 
+/**
+ * Check if a given object implements the BatchSubmitNotValidResponseBody interface.
+ */
+export function instanceOfBatchSubmitNotValidResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "fault" in value;
+    isInstance = isInstance && "id" in value;
+    isInstance = isInstance && "message" in value;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "temporary" in value;
+    isInstance = isInstance && "timeout" in value;
+
+    return isInstance;
+}
+
 export function BatchSubmitNotValidResponseBodyFromJSON(json: any): BatchSubmitNotValidResponseBody {
     return BatchSubmitNotValidResponseBodyFromJSONTyped(json, false);
 }

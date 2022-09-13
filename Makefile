@@ -1,6 +1,6 @@
 client:
 	@rm -rf $(CURDIR)/src/openapi-generator
-	@docker container run --rm --user $(shell id -u):$(shell id -g) --volume $(CURDIR):/local openapitools/openapi-generator-cli:v6.0.0 \
+	@docker container run --rm --user $(shell id -u):$(shell id -g) --volume $(CURDIR):/local openapitools/openapi-generator-cli:v6.1.0 \
 		generate \
 			--input-spec /local/openapi.yaml \
 			--generator-name typescript-fetch \

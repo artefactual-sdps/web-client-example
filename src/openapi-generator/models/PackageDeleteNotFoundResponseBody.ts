@@ -33,6 +33,17 @@ export interface PackageDeleteNotFoundResponseBody {
     message: string;
 }
 
+/**
+ * Check if a given object implements the PackageDeleteNotFoundResponseBody interface.
+ */
+export function instanceOfPackageDeleteNotFoundResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "id" in value;
+    isInstance = isInstance && "message" in value;
+
+    return isInstance;
+}
+
 export function PackageDeleteNotFoundResponseBodyFromJSON(json: any): PackageDeleteNotFoundResponseBody {
     return PackageDeleteNotFoundResponseBodyFromJSONTyped(json, false);
 }

@@ -33,6 +33,17 @@ export interface PackageRetryNotFoundResponseBody {
     message: string;
 }
 
+/**
+ * Check if a given object implements the PackageRetryNotFoundResponseBody interface.
+ */
+export function instanceOfPackageRetryNotFoundResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "id" in value;
+    isInstance = isInstance && "message" in value;
+
+    return isInstance;
+}
+
 export function PackageRetryNotFoundResponseBodyFromJSON(json: any): PackageRetryNotFoundResponseBody {
     return PackageRetryNotFoundResponseBodyFromJSONTyped(json, false);
 }

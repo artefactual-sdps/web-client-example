@@ -27,6 +27,16 @@ export interface EnduroPackageDeletedEventResponseBody {
     id: number;
 }
 
+/**
+ * Check if a given object implements the EnduroPackageDeletedEventResponseBody interface.
+ */
+export function instanceOfEnduroPackageDeletedEventResponseBody(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "id" in value;
+
+    return isInstance;
+}
+
 export function EnduroPackageDeletedEventResponseBodyFromJSON(json: any): EnduroPackageDeletedEventResponseBody {
     return EnduroPackageDeletedEventResponseBodyFromJSONTyped(json, false);
 }
